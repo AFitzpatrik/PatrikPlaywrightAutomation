@@ -17,3 +17,10 @@ test('Page Playwright test', async ({page})=>
     await page.goto("https://google.com");
 
 });
+
+test.only('Page only Playwright test', async ({page})=>
+{
+
+    await page.goto("https://google.com");
+
+});
