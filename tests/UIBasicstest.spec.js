@@ -4,18 +4,26 @@ const {test, expect} = require('@playwright/test');
 //Toto je struktura playwright testu
 
 test.only('Browser Context Playwright test', async ({browser})=>
-{
+{       
         const context = await browser.newContext();
         const page = await context.newPage();
+        const userName = page.locator("#username");
+        const SignIn = page.locator("#signInBtn");
         await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
         console.log(await page.title());
         await expect(page).toHaveTitle("LoginPage Practise | Rahul Shetty Academy");
         //css selectory, xpath (xpath je možná ale nedoporučuje se)
-        await page.locator("#username").fill("rahulshetty")
-        await page.locator("[type='password']").fill("learning")
-        await page.locator("#signInBtn").click();
+        await userName.fill("rahulshetty");
+        await page.locator("[type='password']").fill("learning");
+        await SignIn.click();
     console.log(await page.locator("[style*='block']").textContent());
-    await expect(page.locator("[style*='block']")).toContainText("Incorrect");
+        await expect(page.locator("[style*='block']")).toContainText("Incorrect");
+        await userName.fill("");
+        await userName.fill("rahulshettyacademy");
+        await SignIn.click();
+    console.log(await page.locator(".card-body a").first().textContent());
+    console.log(await page.locator(".card-body a").nth(1).textContent());
+    //console.log(await page.locator(".card-body a").first.textContent()); Jiná možnost jak napsat předchozí řádek
 
 
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type
