@@ -12,6 +12,9 @@ test('Browser Context Playwright test', async ({browser})=>
     await expect(page).toHaveTitle("LoginPage Practise | Rahul Shetty Academy");
     //css selectory, xpath (xpath je možná ale nedoporučuje se)
     await page.locator("#username").fill("rahulshetty")
+    await page.locator("[type='password']").fill("learning")
+    await page.click("#signInBtn")
+
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type
 
 });
