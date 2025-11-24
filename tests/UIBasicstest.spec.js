@@ -3,7 +3,7 @@ const {test, expect} = require('@playwright/test');
 
 //Toto je struktura playwright testu
 
-test('Browser Context Playwright test', async ({browser})=>
+test.only('Browser Context Playwright test', async ({browser})=>
 {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -13,7 +13,9 @@ test('Browser Context Playwright test', async ({browser})=>
     //css selectory, xpath (xpath je možná ale nedoporučuje se)
     await page.locator("#username").fill("rahulshetty")
     await page.locator("[type='password']").fill("learning")
-    await page.click("#signInBtn")
+    await page.locator("#signInBtn").click();
+    console.log(await page.locator("[style*='block']").textContent());
+
 
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type
 
