@@ -26,7 +26,7 @@ test.only('Browser Context Playwright test', async ({browser})=>
     //console.log(await page.locator(".card-body a").first.textContent()); Jiná možnost jak napsat předchozí řádek
 
 
-    //type, fill - v nové verzi playwrightu se doporučuje fill místo type
+    //type, fill - v nové verzi playwrightu se doporučuje fill místo type!
 
 });
 
