@@ -42,7 +42,7 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await expect(page).toHaveTitle("Let's Shop");
         await page.locator("#firstName").fill("Patrik");
         await page.locator("#lastName").fill("Fitzpatrik");
-        await page.locator("#userEmail").fill("francupatrik@seznam.cz");
+        await page.locator("#userEmail").fill("testing1@seznam.cz");
         await page.locator("#userMobile").fill("1234567891");
         await page.locator('input[type="radio"][value="Male"]').check();
         await page.locator('[formcontrolname="occupation"]').selectOption('Student');
@@ -52,12 +52,15 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await page.locator("#login").click();
         await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/auth/login");
         await page.locator("#userEmail").fill("francupatrik@seznam.cz");
-        await page.locator("#userPassword").fill("Test1234!");¨
+        await page.locator("#userPassword").fill("Test1234!");
         await page.locator("#login").click();
         await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard");
+        await page.locator('.card');
+        console.log(await page.locator('.card').count());
+        console.log(await page.locator('.card').nth(0).textContent());
+        }
 
-
-});
+);
 
 
 
