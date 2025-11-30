@@ -51,6 +51,10 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await page.locator("input[type='checkbox']").check();
         await page.locator("#login").click();
         await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/auth/login");
+        await page.locator("#userEmail").fill("francupatrik@seznam.cz");
+        await page.locator("#userPassword").fill("Test1234!");¨
+        await page.locator("#login").click();
+        await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard");
 
 
 });
