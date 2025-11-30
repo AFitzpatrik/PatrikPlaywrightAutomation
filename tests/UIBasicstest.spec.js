@@ -28,7 +28,7 @@ test.only('Browser Context Playwright test', async ({browser})=>
     await cardTitles.allTextContents(); //všechny texty z elementů
     const AllTitles = await cardTitles.allTextContents();
     console.log(AllTitles);
-
+// ŮKOL UDALT!!
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type!
 
 });
