@@ -50,6 +50,7 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await page.locator("#confirmPassword").fill("Test1234!");
         await page.locator("input[type='checkbox']").check();
         await page.locator("#login").click();
+        await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/auth/login");
 
 
 });
