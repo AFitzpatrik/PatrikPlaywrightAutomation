@@ -37,12 +37,14 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
 {       
         const context = await browser.newContext();
         const page = await context.newPage();
+        const userEmail = page.locator("#userEmail");
+        
         await page.goto("https://rahulshettyacademy.com/client/#/auth/register");
         console.log(await page.title());
         await expect(page).toHaveTitle("Let's Shop");
         await page.locator("#firstName").fill("Patrik");
         await page.locator("#lastName").fill("Fitzpatrik");
-        await page.locator("#userEmail").fill("testing6969@seznam.cz");
+        await userEmail.fill("testing696969@seznam.cz");
         await page.locator("#userMobile").fill("1234567891");
         await page.locator('input[type="radio"][value="Male"]').check();
         await page.locator('[formcontrolname="occupation"]').selectOption('Student');
@@ -52,7 +54,8 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await page.locator("#login").click(); //Dokoncit registraci
         
         await page.locator(".btn.btn-primary").click();
-        await page.locator("#userEmail").fill("francupatrik@seznam.cz");
+        
+        await userEmail.fill("francupatrik@seznam.cz");
         await page.locator("#userPassword").fill("Test1234!");
         await page.locator("#login").click();
         await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard"); //Dokončit přihlášení
