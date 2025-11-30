@@ -3,7 +3,7 @@ const {test, expect} = require('@playwright/test');
 
 //Toto je struktura playwright testu
 
-test.only('Browser Context Playwright test', async ({browser})=>
+test('Browser Context Playwright test', async ({browser})=>
 {       
         const context = await browser.newContext();
         const page = await context.newPage();
@@ -32,6 +32,55 @@ test.only('Browser Context Playwright test', async ({browser})=>
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type!
 
 });
+
+test.only('Assigments 1 Playwright test', async ({browser})=>
+{       
+        const context = await browser.newContext();
+        const page = await context.newPage();
+        await page.goto("https://rahulshettyacademy.com/client/#/auth/register");
+        console.log(await page.title());
+        await expect(page).toHaveTitle("Let's Shop");
+        await page.locator("#firstName").fill("Patrik");
+        await page.locator("#lastName").fill("Francu");
+        await page.locator("#userEmail").fill("francupatrik@seznam.cz");
+        await page.locator("#userMobile").fill("123456789");
+        await page.locator('input[type="radio"][value="Male"]').check();
+        await page.locator("#userPassword").fill("Test1234!");
+        await page.locator("#confirmPassword").fill("Test1234!");
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 test('Page Playwright test', async ({page})=>
 {
