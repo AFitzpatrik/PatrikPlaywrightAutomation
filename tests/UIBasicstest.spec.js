@@ -49,13 +49,14 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await page.locator("#userPassword").fill("Test1234!");
         await page.locator("#confirmPassword").fill("Test1234!");
         await page.locator("input[type='checkbox']").check();
-        await page.locator("#login").click();
+        await page.locator("#login").click(); //Dokoncit registraci
         
         await page.locator(".btn.btn-primary").click();
         await page.locator("#userEmail").fill("francupatrik@seznam.cz");
         await page.locator("#userPassword").fill("Test1234!");
         await page.locator("#login").click();
-        await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard");
+        await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard"); //Dokončit přihlášení
+        
         await page.locator('.card');
         console.log(await page.locator('.card').count());
         console.log(await page.locator('.card').nth(0).textContent());
