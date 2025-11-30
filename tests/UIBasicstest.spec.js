@@ -9,6 +9,7 @@ test.only('Browser Context Playwright test', async ({browser})=>
         const page = await context.newPage();
         const userName = page.locator("#username");
         const SignIn = page.locator("#signInBtn");
+        const cardTitles = page.locator(".card-body a");
         await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
         console.log(await page.title());
         await expect(page).toHaveTitle("LoginPage Practise | Rahul Shetty Academy");
@@ -21,10 +22,12 @@ test.only('Browser Context Playwright test', async ({browser})=>
         await userName.fill("");
         await userName.fill("rahulshettyacademy");
         await SignIn.click();
-    console.log(await page.locator(".card-body a").first().textContent());
-    console.log(await page.locator(".card-body a").nth(1).textContent());
+    console.log(await cardTitles.first().textContent());
+    console.log(await cardTitles.nth(1).textContent());
     //console.log(await page.locator(".card-body a").first.textContent()); Jiná možnost jak napsat předchozí řádek
-
+    await cardTitles.allTextContents(); //všechny texty z elementů
+    const AllTitles = await cardTitles.allTextContents();
+    console.log(AllTitles);
 
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type!
 
