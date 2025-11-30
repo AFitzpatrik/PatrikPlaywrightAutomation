@@ -45,8 +45,11 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await page.locator("#userEmail").fill("francupatrik@seznam.cz");
         await page.locator("#userMobile").fill("123456789");
         await page.locator('input[type="radio"][value="Male"]').check();
+        await page.locator('[formcontrolname="occupation"]').selectOption('Student');
         await page.locator("#userPassword").fill("Test1234!");
         await page.locator("#confirmPassword").fill("Test1234!");
+        await page.locator("input[type='checkbox']").check();
+        await page.locator("#login").click();
 
 
 });
