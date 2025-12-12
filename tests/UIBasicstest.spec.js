@@ -28,7 +28,7 @@ test('Browser Context Playwright test', async ({browser})=>
     await cardTitles.allTextContents(); //všechny texty z elementů
     const AllTitles = await cardTitles.allTextContents();
     console.log(AllTitles);
-// ŮKOL UDALT!!
+// ÚKOL UDELAT!!
     //type, fill - v nové verzi playwrightu se doporučuje fill místo type!
 
 });
@@ -44,8 +44,8 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await expect(page).toHaveTitle("Let's Shop");
         await page.locator("#firstName").fill("Patrik");
         await page.locator("#lastName").fill("Fitzpatrik");
-        await userEmail.fill("testing696969@seznam.cz");
-        await page.locator("#userMobile").fill("1234567891");
+        await userEmail.fill("testing6969769@seznam.cz");
+        await page.locator("#userMobile").fill("1295567891");
         await page.locator('input[type="radio"][value="Male"]').check();
         await page.locator('[formcontrolname="occupation"]').selectOption('Student');
         await page.locator("#userPassword").fill("Test1234!");
@@ -58,7 +58,7 @@ test.only('Assigments 1 Playwright test', async ({browser})=>
         await userEmail.fill("francupatrik@seznam.cz");
         await page.locator("#userPassword").fill("Test1234!");
         await page.locator("#login").click();
-        await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard"); //Dokončit přihlášení
+        await expect(page).toHaveURL("https://rahulshettyacademy.com/client/#/dashboard/dash"); //Dokončit přihlášení
         
         await page.locator('.card');
         console.log(await page.locator('.card').count());
