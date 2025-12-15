@@ -69,7 +69,7 @@ test('Assigments 1 Playwright test', async ({browser})=>
 
 
 
-test.only('UI Controls', async ({page})=>
+test('UI Controls', async ({page})=>
 {
 const UserName= page.locator("#username");
 const SignIn = page.locator("#signInBtn");
@@ -93,15 +93,34 @@ console.log(await page.locator("#terms").isChecked()); //vypíše false, protož
 expect(await page.locator("#terms").isChecked()).toBeFalsy(); //assertion - očekáváme že to bude false, takže test je PASS
 
 await expect(documentLink).toHaveAttribute("class","blinkingText");
-
-
-//await page.pause();
+await page.pause();
 
 }
 
 
  
 );
+
+test.only('Child window hadl', async ({browser})=>
+{
+
+
+const context = await browser.newContext();
+const page = await context.newPage();
+
+await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+const documentLink = page.locator("[href*='documents-request']");
+
+const [newPage] = await Promise.all(
+[
+context.waitForEvent('page'), //čeká na nové okno - pending, rejected, fulfilled
+documentLink.click(),         // otevře se nové okno v prohlížeči)
+])
+
+const text = await newPage.locator(".red").textContent();
+console.log(text);
+
+});
 
 
 
