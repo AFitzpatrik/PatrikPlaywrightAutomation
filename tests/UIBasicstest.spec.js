@@ -82,8 +82,9 @@ await page.locator("#password").fill("learning");
 await DropDown.selectOption("consult");
 await page.locator(".radiotextsty").last().click();
 await page.locator("#okayBtn").click();
-//assertion
-await page.pause();
+await expect(page.locator(".radiotextsty").last()).toBeChecked(); //assertion
+console.log(await page.locator(".radiotextsty").last().isChecked());
+//await page.pause();
 
 }
 
