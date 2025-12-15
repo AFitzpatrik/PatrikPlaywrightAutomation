@@ -33,7 +33,7 @@ test('Browser Context Playwright test', async ({browser})=>
 
 });
 
-test.only('Assigments 1 Playwright test', async ({browser})=>
+test('Assigments 1 Playwright test', async ({browser})=>
 {       
         const context = await browser.newContext();
         const page = await context.newPage();
