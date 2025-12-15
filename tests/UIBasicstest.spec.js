@@ -74,6 +74,7 @@ test.only('UI Controls', async ({page})=>
 const UserName= page.locator("#username");
 const SignIn = page.locator("#signInBtn");
 const DropDown = page.locator("select.form-control");
+const documentLink = page.locator("[href*='documents-request']");
 
 await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 await UserName.fill("rahulshettyacademy");
@@ -91,6 +92,8 @@ await page.locator("#terms").uncheck();
 console.log(await page.locator("#terms").isChecked()); //vypíše false, protože jsme odškrtnuli
 expect(await page.locator("#terms").isChecked()).toBeFalsy(); //assertion - očekáváme že to bude false, takže test je PASS
 
+await expect(documentLink).toHaveAttribute("class","blinkingText");
+
 
 //await page.pause();
 
@@ -98,7 +101,7 @@ expect(await page.locator("#terms").isChecked()).toBeFalsy(); //assertion - oče
 
 
  
-)
+);
 
 
 
