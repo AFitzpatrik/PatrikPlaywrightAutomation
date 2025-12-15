@@ -118,7 +118,9 @@ documentLink.click(),         // otevře se nové okno v prohlížeči)
 ])
 
 const text = await newPage.locator(".red").textContent();
-console.log(text);
+const arrayText = text.split("@")
+const domain = arrayText[1].split(" ")[0];
+console.log(domain);
 
 });
 
