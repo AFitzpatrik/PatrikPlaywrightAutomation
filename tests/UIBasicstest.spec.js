@@ -84,6 +84,14 @@ await page.locator(".radiotextsty").last().click();
 await page.locator("#okayBtn").click();
 await expect(page.locator(".radiotextsty").last()).toBeChecked(); //assertion
 console.log(await page.locator(".radiotextsty").last().isChecked());
+
+await page.locator("#terms").check();
+await expect(page.locator("#terms")).toBeChecked();
+await page.locator("#terms").uncheck();
+console.log(await page.locator("#terms").isChecked()); //vypíše false, protože jsme odškrtnuli
+expect(await page.locator("#terms").isChecked()).toBeFalsy(); //assertion - očekáváme že to bude false, takže test je PASS
+
+
 //await page.pause();
 
 }
