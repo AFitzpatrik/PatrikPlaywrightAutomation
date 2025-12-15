@@ -122,6 +122,9 @@ const arrayText = text.split("@")
 const domain = arrayText[1].split(" ")[0];
 console.log(domain);
 
+await page.locator("#username").fill(domain);
+await page.pause(); 
+console.log(await page.locator("#username").textContent());
 });
 
 
