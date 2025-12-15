@@ -69,7 +69,7 @@ test('Assigments 1 Playwright test', async ({browser})=>
 
 
 
-test('UI Controls', async ({page})=>
+test.only('UI Controls', async ({page})=>
 {
 const UserName= page.locator("#username");
 const SignIn = page.locator("#signInBtn");
@@ -77,8 +77,13 @@ const DropDown = page.locator("select.form-control");
 
 await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
 await UserName.fill("rahulshettyacademy");
+
 await page.locator("#password").fill("learning");
 await DropDown.selectOption("consult");
+await page.locator(".radiotextsty").last().click();
+await page.locator("#okayBtn").click();
+//assertion
+await page.pause();
 
 }
 
